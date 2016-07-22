@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="media well">
+            <div class="media-left media-middle">
+                <img class="media-object" style="max-width: 250px;" src="{{city._flag.value}}">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{city.state_regionLabel.value}}</h4>
+                <ul>
+                    <li><b>Population</b> - {{city._population.value}} people</li>
+                    <li><b>TimeZone</b> - {{city.timeZoneLabel.value}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Cities in {{city.state_regionLabel.value}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="c in cities">
+                    <td>{{c.cityLabel.value}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

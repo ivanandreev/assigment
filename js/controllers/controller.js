@@ -1,4 +1,3 @@
-
 angular = require('angular');
 
 angular.module('app').controller('controller',function ($scope, wikiService, sparqlQuery){
@@ -9,6 +8,8 @@ angular.module('app').controller('controller',function ($scope, wikiService, spa
 });
 
 angular.module('app').controller('countryCtrl',function ($scope, wikiService, sparqlQuery, $routeParams){
+    $scope.idCountry = $routeParams.id;
+    
     wikiService.getSparql(sparqlQuery.getCountryInfoQuery($routeParams.id)).then(function(data){
         $scope.country = data[0];
     });
@@ -23,11 +24,17 @@ angular.module('app').controller('countryCtrl',function ($scope, wikiService, sp
 });
 
 angular.module('app').controller('stateCtrl',function ($scope, wikiService, sparqlQuery, $routeParams){
+    wikiService.getSparql(sparqlQuery.getCityListOfStateQuery($routeParams.idCountry, $routeParams.idState)).then(function(data){
+        $scope.cities = data;
+    });
 
+    wikiService.getSparql(sparqlQuery.getStateInfoQuery($routeParams.idCountry, $routeParams.idState)).then(function(data){
+        $scope.city = data[0];
+    });
 });
 
 angular.module('app').filter('splitLink', function() {
-        return function(input, splitChar, splitIndex) {            
+        return function(input, splitChar) {            
             var arr = input.split(splitChar);
             return arr[arr.length-1];
         }

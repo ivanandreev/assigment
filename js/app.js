@@ -14,7 +14,7 @@ angular.module('app', ['ngRoute']).config(function($routeProvider){
             }
         })
         .when('/country/:id',{
-            templateUrl:'partials/country.html',
+            templateUrl:'partials/countryInfo.html',
             controller: 'countryCtrl',
             resolve: {
                 wikiService: ['wikiService', function(wikiService){
@@ -22,8 +22,8 @@ angular.module('app', ['ngRoute']).config(function($routeProvider){
                 }]
             }
         })
-        .when('/state/:id',{
-            templateUrl:'partials/state.html',
+        .when('/country/:idCountry/:idState',{
+            templateUrl:'partials/stateInfo.html',
             controller: 'stateCtrl',
             resolve: {
                 wikiService: ['wikiService', function(wikiService){
@@ -37,5 +37,6 @@ angular.module('app', ['ngRoute']).config(function($routeProvider){
 require('controller');
 require('wikiService');
 require('sparqlQuery');
+require('navigation');
 
 

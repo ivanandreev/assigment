@@ -16,11 +16,6 @@ gulp.task('clean', function (cb) {
     ], cb);
 });
 
-gulp.task('build-css', ['clean'], function() {
-    return gulp.src('./node_modules/bootstrap/dist/css/*')
-        .pipe(gulp.dest('./dist/style'));
-});
-
 gulp.task('build-template', ['clean'], function() {
     return gulp.src("./partials/*.html").pipe(gulp.dest('./dist/partials'));
 });
@@ -35,13 +30,13 @@ gulp.task('build-js', function () {
 
  return b.bundle()
         .pipe(source('bundle.js'))
-        .pipe(buffer())        
+        .pipe(buffer())
         .on('error', gutil.log)
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./dist/js/'));
 });
 
-gulp.task('build', [ 'clean', 'build-css','build-template','build-js'], function() {
+gulp.task('build', [ 'clean','build-template','build-js'], function() {
     return gulp.src('index.html')        
         .pipe(gulp.dest('dist'));
 });

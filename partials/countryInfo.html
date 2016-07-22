@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="media well">
+      <div class="media-left media-middle">
+          <img class="media-object" style="max-width: 250px;" src="{{country._flag_image.value}}">
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{country.countryLabel.value}}</h4>
+        <ul>
+          <li><b>Capital</b> - {{country._capitalLabel.value}}</li>
+          <li><b>Population</b> - {{country._population.value}} people</li>
+          <li><b>Currrency</b> - {{country._currencyLabel.value}}</li>
+          <li><b>Language</b> - {{country._official_languageLabel.value}}</li>
+          <li><b>Head of State</b> - {{country._head_of_stateLabel.value}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Shares Border</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="border in sharesBorder">
+              <td><a ng-href="#/country/{{border._shares_border_with.value | splitLink:'/'}}">{{border._shares_border_withLabel.value}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>States / Regions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="state in states">
+              <td><a ng-href="#/country/{{idCountry}}/{{state.state_region.value | splitLink:'/'}}">{{state.state_regionLabel.value}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
