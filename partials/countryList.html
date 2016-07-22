@@ -1,0 +1,24 @@
+<div>
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                <input type="text" class="form-control" placeholder="Search country" ng-model="search">
+
+            </div>
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Country name</th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="c in countries | filter: search">            
+                <td><a ng-href="#/country/{{c.country.value | splitLink:'/':0}}">{{c.countryLabel.value}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
