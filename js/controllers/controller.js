@@ -22,6 +22,10 @@ angular.module('app').controller('countryCtrl',function ($scope, wikiService, sp
     });  
 });
 
+angular.module('app').controller('stateCtrl',function ($scope, wikiService, sparqlQuery, $routeParams){
+
+});
+
 angular.module('app').filter('splitLink', function() {
         return function(input, splitChar, splitIndex) {            
             var arr = input.split(splitChar);

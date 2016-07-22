@@ -46,4 +46,12 @@ angular.module('app').service('sparqlQuery',function(){
                   "OPTIONAL { ?country wdt:P150 ?state_region. } \n" + 
                 "} ORDER BY (?state_regionLabel)";
     }
+
+    this.getStateInfoQuery = function(id) {
+        return "";
+    }
+
+    this.getCityListOfStateQuery = function(id) {
+        return "";
+    }
 });

@@ -22,6 +22,15 @@ angular.module('app', ['ngRoute']).config(function($routeProvider){
                 }]
             }
         })
+        .when('/state/:id',{
+            templateUrl:'partials/state.html',
+            controller: 'stateCtrl',
+            resolve: {
+                wikiService: ['wikiService', function(wikiService){
+                    return wikiService;
+                }]
+            }
+        })
         .otherwise({redirectTo: '/'});
 });
 
